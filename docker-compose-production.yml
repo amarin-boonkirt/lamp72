@@ -10,7 +10,7 @@ services:
           - LOCALE=${LOCALE} 
           - WEB_UID=${WEB_UID}
           - WEB_GID=${WEB_GID}    
-    env_file: [env.options]
+    env_file: [env.overrides]
     working_dir: /var/www/html
     volumes:      
       - '${PROJECT_WEB_DIR}:/var/www/html'
