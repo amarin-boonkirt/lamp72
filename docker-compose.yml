@@ -10,7 +10,6 @@ services:
           - LOCALE=${LOCALE} 
           - WEB_UID=${WEB_UID}
           - WEB_GID=${WEB_GID}    
-    env_file: [env.overrides]
     working_dir: /var/www/html
     volumes:      
       - '${PROJECT_WEB_DIR}:/var/www/html'
@@ -24,9 +23,6 @@ services:
       - mariadb      
   mariadb:
     image: 'mariadb:10.4'
-    env_file: [env.overrides]
-    #ports:
-    #  - "${MARIADB_PORT}:3306"
     environment:
       - TZ=${TZ}
       - MYSQL_ROOT_HOST=%
@@ -38,7 +34,6 @@ services:
       - '/var/docker_persistent_storage/mysql:/var/lib/mysql'
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    env_file: [env.overrides]
     links:
       - mariadb
     depends_on:
@@ -53,8 +48,5 @@ services:
       - /sessions
   mailhog:
     image: 'mailhog/mailhog:latest'
-    env_file: [env.overrides]
     ports:
-      - '${MAILHOG}:8025'
-      
-#https://docs.docker.com/compose/reference/envvars/      
+      - '${MAILHOG}:8025'     
