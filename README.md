@@ -13,3 +13,8 @@ docker-compose -f docker-compose-production.yml down
 phpMyAdmin
 FTP 
 ~~~
+
+## TODO
+letsencrypt
+healthcheck
+monitoring
